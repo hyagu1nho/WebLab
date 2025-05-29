@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hobbies</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <header>
+    <h1>Hobbies</h1>
+    <nav>
+      <a href="index.html">Início</a>
+      <a href="sobre.html">Sobre</a>
+      <a href="hobby.html">Hobbies</a>
+      <a href="contato.html">Contato</a>
+      <button onclick="toggleTheme()">
+        <img src="img/icone.png" alt="Tema" width="24">
+      </button>
+    </nav>
+  </header>
+  <main>
+    <section class="card center-content">
+      <div class="carousel-container">
+        <div class="carousel-slide active">
+          <h3 class="carousel-title">Futsal</h3>
+          <img src="img/futsal.jpg" alt="Futsal">
+          <p class="carousel-desc">Paixão pelas quadras e horários semanais com amigos.</p>
+        </div>
+    
+        <div class="carousel-slide">
+          <h3 class="carousel-title">Sair com amigos</h3>
+          <img src="img/faixas.jpg" alt="Faixas de Jiu-Jitsu">
+          <p class="carousel-desc">Momentos de aproveitar, beber e rir.</p>
+        </div>
+    
+        <div class="carousel-slide">
+          <h3 class="carousel-title">Namorada</h3>
+          <img src="img/namorada.jpg" alt="Namorada">
+          <p class="carousel-desc">Pessoa especial que faz parte da minha vida.</p>
+        </div>
+    
+        <div class="carousel-buttons">
+          <button onclick="changeSlide(-1)">❮</button>
+          <button onclick="changeSlide(1)">❯</button>
+        </div>
+      </div>
+    </section>
+
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-slide');
+
+        function showSlide(index) {
+          slides.forEach((slide, i) => {
+            slide.classList.toggle('active', i === index);
+          });
+        }
+
+        function changeSlide(n) {
+          currentSlide = (currentSlide + n + slides.length) % slides.length;
+          showSlide(currentSlide);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => showSlide(currentSlide));
+    </script>
+  </main>
+  <footer>
+    <p>© Hyago Tonelli | 2025 </p>
+  </footer>
+  <script src="js/script.js"></script>
+</body>
+</html>
